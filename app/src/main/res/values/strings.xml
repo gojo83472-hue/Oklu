@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Voice Assistant</string>
+    <string name="listening_prompt">Listening…</string>
+    <string name="speech_not_available">Speech recognition not available on this device.</string>
+    <string name="mic_permission_required">Microphone permission is required for voice input.</string>
+    <string name="call_confirm_title">Confirm Phone Call</string>
+    <string name="call_confirm_desc">Are you sure you want to call %s?</string>
+    <string name="call_button">Call Now</string>
+    <string name="cancel_button">Cancel</string>
+</resources>

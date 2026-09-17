@@ -1,0 +1,61 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Central Glowing Microphone with Sound Wave Wings -->
+    <path
+        android:pathData="M54,34 C49.6,34 46,37.6 46,42 L46,54 C46,58.4 49.6,62 54,62 C58.4,62 62,58.4 62,54 L62,42 C62,37.6 58.4,34 54,34 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:endX="62"
+                android:endY="62"
+                android:startX="46"
+                android:startY="34"
+                android:type="linear">
+                <item android:color="#60A5FA" android:offset="0.0" />
+                <item android:color="#A855F7" android:offset="1.0" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- Mic Cradle -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#E0E7FF"
+        android:strokeWidth="3.5"
+        android:strokeLineCap="round"
+        android:pathData="M40,50 C40,59 46.2,66 54,66 C61.8,66 68,59 68,50" />
+
+    <!-- Mic Stand and Base -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#E0E7FF"
+        android:strokeWidth="3.5"
+        android:strokeLineCap="round"
+        android:pathData="M54,66 L54,74 M44,74 L64,74" />
+
+    <!-- Sound Wave Left -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#38BDF8"
+        android:strokeWidth="2.5"
+        android:strokeLineCap="round"
+        android:pathData="M33,44 C31,48 31,52 33,56 M27,40 C24,47 24,53 27,60" />
+
+    <!-- Sound Wave Right -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#C084FC"
+        android:strokeWidth="2.5"
+        android:strokeLineCap="round"
+        android:pathData="M75,44 C77,48 77,52 75,56 M81,40 C84,47 84,53 81,60" />
+
+    <!-- AI Sparkle Top Right -->
+    <path
+        android:fillColor="#FDE047"
+        android:pathData="M78,31 L80,26 L85,24 L80,22 L78,17 L76,22 L71,24 L76,26 Z" />
+</vector>
+

@@ -1,0 +1,6 @@
+{
+  "name": "Voice Assistant",
+  "description": "Smart AI voice assistant with speech recognition, text-to-speech, local chat history, voice settings customization, and Android device actions.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
