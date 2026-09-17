@@ -57,6 +57,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.scale
+import androidx.compose.ui.res.painterResource
+import com.example.R
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.testTag
@@ -115,25 +117,25 @@ fun OnboardingScreen(
         ) {
             Spacer(modifier = Modifier.height(16.dp))
 
-            // Arc Reactor Core Icon
+            // Human & AI Connection App Logo Emblem
             Box(
                 contentAlignment = Alignment.Center,
                 modifier = Modifier
-                    .size(90.dp)
+                    .size(96.dp)
                     .scale(pulseScale)
-                    .border(2.dp, neonCyan.copy(alpha = 0.8f), CircleShape)
+                    .border(2.dp, neonCyan.copy(alpha = 0.85f), CircleShape)
                     .background(
                         Brush.radialGradient(
-                            colors = listOf(neonCyan.copy(alpha = 0.35f), Color.Transparent)
+                            colors = listOf(neonCyan.copy(alpha = 0.3f), Color(0xFF0F172A))
                         ),
                         CircleShape
                     )
             ) {
                 Icon(
-                    imageVector = Icons.Default.GraphicEq,
-                    contentDescription = "Core Setup",
-                    tint = neonCyan,
-                    modifier = Modifier.size(44.dp)
+                    painter = painterResource(R.drawable.ic_ai_human_logo),
+                    contentDescription = "AI Assistant Logo",
+                    tint = Color.Unspecified,
+                    modifier = Modifier.size(76.dp)
                 )
             }
 

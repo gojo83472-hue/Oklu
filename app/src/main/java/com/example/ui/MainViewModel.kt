@@ -86,6 +86,12 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     private val _showCompanionPet = MutableStateFlow(preferences.showCompanionPet)
     val showCompanionPet: StateFlow<Boolean> = _showCompanionPet.asStateFlow()
 
+    private val _petMode = MutableStateFlow(preferences.petMode)
+    val petMode: StateFlow<String> = _petMode.asStateFlow()
+
+    private val _petEmojiPersona = MutableStateFlow(preferences.petEmojiPersona)
+    val petEmojiPersona: StateFlow<String> = _petEmojiPersona.asStateFlow()
+
     private val _screenTimeReminderMinutes = MutableStateFlow(preferences.screenTimeReminderMinutes)
     val screenTimeReminderMinutes: StateFlow<Int> = _screenTimeReminderMinutes.asStateFlow()
 
@@ -458,7 +464,9 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         uiLanguage: String,
         showCompanionPet: Boolean,
         screenTimeReminderMinutes: Int,
-        isSmsConfirmationRequired: Boolean
+        isSmsConfirmationRequired: Boolean,
+        petMode: String = "emoji",
+        petEmojiPersona: String = "robot"
     ) {
         preferences.isTtsEnabled = isTtsEnabled
         preferences.ttsPitch = ttsPitch
@@ -478,6 +486,8 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         preferences.showCompanionPet = showCompanionPet
         preferences.screenTimeReminderMinutes = screenTimeReminderMinutes
         preferences.isSmsConfirmationRequired = isSmsConfirmationRequired
+        preferences.petMode = petMode
+        preferences.petEmojiPersona = petEmojiPersona
 
         _assistantName.value = safeName
         _userNickname.value = safeNick
@@ -486,6 +496,8 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         _showCompanionPet.value = showCompanionPet
         _screenTimeReminderMinutes.value = screenTimeReminderMinutes
         _isSmsConfirmationRequired.value = isSmsConfirmationRequired
+        _petMode.value = petMode
+        _petEmojiPersona.value = petEmojiPersona
 
         applyTtsPreferences()
     }

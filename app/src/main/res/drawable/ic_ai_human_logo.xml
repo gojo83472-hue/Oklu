@@ -1,0 +1,264 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Ambient Radial Halo behind central touchpoint -->
+    <path
+        android:pathData="M54,50m-28,0a28,28 0 1,1 56,0a28,28 0 1,1 -56,0">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:centerX="54"
+                android:centerY="50"
+                android:gradientRadius="28"
+                android:type="radial">
+                <item android:color="#3300E5FF" android:offset="0.0" />
+                <item android:color="#1A6366F1" android:offset="0.6" />
+                <item android:color="#00000000" android:offset="1.0" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- Subtle Luminous Collaboration Orbit Rings -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#38BDF8"
+        android:strokeAlpha="0.22"
+        android:strokeWidth="1.2"
+        android:strokeLineCap="round"
+        android:pathData="M24,42 C30,26 48,20 66,22 C78,24 88,32 92,44" />
+
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#818CF8"
+        android:strokeAlpha="0.22"
+        android:strokeWidth="1.2"
+        android:strokeLineCap="round"
+        android:pathData="M16,64 C20,76 30,84 42,86 C60,88 78,82 84,66" />
+
+    <!-- Digital Node Dots along Orbit -->
+    <path
+        android:fillColor="#00E5FF"
+        android:fillAlpha="0.6"
+        android:pathData="M24,42m-1.5,0a1.5,1.5 0 1,1 3,0a1.5,1.5 0 1,1 -3,0" />
+    <path
+        android:fillColor="#818CF8"
+        android:fillAlpha="0.6"
+        android:pathData="M92,44m-1.5,0a1.5,1.5 0 1,1 3,0a1.5,1.5 0 1,1 -3,0" />
+    <path
+        android:fillColor="#00E5FF"
+        android:fillAlpha="0.6"
+        android:pathData="M42,86m-1.5,0a1.5,1.5 0 1,1 3,0a1.5,1.5 0 1,1 -3,0" />
+
+    <!-- ======================================================== -->
+    <!-- HUMAN HAND (Left Side Reaching Gently Up & Right)        -->
+    <!-- ======================================================== -->
+
+    <!-- Human Forearm and Palm Base -->
+    <path
+        android:pathData="M20,78 C23,70 28,63 34,58 C37,55 42,53 47,51.5 C50.5,50.5 52.8,50 53.2,50.3 C53.5,50.7 52,51.8 49,53.2 C44,55.5 39.5,59 36,63 C33.5,66 31,71 28,78 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="20"
+                android:startY="78"
+                android:endX="53"
+                android:endY="50"
+                android:type="linear">
+                <item android:color="#CBD5E1" android:offset="0.0" />
+                <item android:color="#E2E8F0" android:offset="0.5" />
+                <item android:color="#FFFFFF" android:offset="1.0" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- Human Thumb Gesture Silhouette -->
+    <path
+        android:pathData="M31,64 C33,59 36,55.5 40,54 C42,53.2 43.5,54.2 42.5,55.5 C40.5,57.5 38,60.5 36,65 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="31"
+                android:startY="65"
+                android:endX="43"
+                android:endY="53"
+                android:type="linear">
+                <item android:color="#94A3B8" android:offset="0.0" />
+                <item android:color="#E2E8F0" android:offset="1.0" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- Human Finger Soft Rim Light / Glow Accent -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#38BDF8"
+        android:strokeWidth="1.2"
+        android:strokeLineCap="round"
+        android:strokeAlpha="0.75"
+        android:pathData="M24,73 C27.5,66 32,60.5 37,56.5 C42,53 47,51.2 52.5,50.2" />
+
+    <!-- ======================================================== -->
+    <!-- AI ROBOTIC HAND (Right Side Reaching Gently Down & Left) -->
+    <!-- ======================================================== -->
+
+    <!-- Robotic Forearm Cybernetic Plate -->
+    <path
+        android:pathData="M88,28 L78,36 L73,34 L83,26 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="88"
+                android:startY="26"
+                android:endX="73"
+                android:endY="36"
+                android:type="linear">
+                <item android:color="#38BDF8" android:offset="0.0" />
+                <item android:color="#1E40AF" android:offset="1.0" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- Robotic Forearm Main Chassis -->
+    <path
+        android:pathData="M84,33 L73,42 L67,40 L78,31 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="84"
+                android:startY="31"
+                android:endX="67"
+                android:endY="42"
+                android:type="linear">
+                <item android:color="#00E5FF" android:offset="0.0" />
+                <item android:color="#4338CA" android:offset="1.0" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- Robotic Wrist Joint Ring -->
+    <path
+        android:fillColor="#00E5FF"
+        android:pathData="M71,40m-2,0a2,2 0 1,1 4,0a2,2 0 1,1 -4,0" />
+
+    <!-- Robotic Palm & Knuckle Segment -->
+    <path
+        android:pathData="M71,41 L63,47 L60,45 L67,39 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="71"
+                android:startY="39"
+                android:endX="60"
+                android:endY="47"
+                android:type="linear">
+                <item android:color="#E0E7FF" android:offset="0.0" />
+                <item android:color="#38BDF8" android:offset="1.0" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- Robotic Finger Knuckle Node -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M62,46.5m-1.5,0a1.5,1.5 0 1,1 3,0a1.5,1.5 0 1,1 -3,0" />
+
+    <!-- Robotic Index Finger (Reaching gently to 55, 49.8) -->
+    <path
+        android:pathData="M61.5,47 L55.2,49.8 C54.7,50 54.7,50.6 55.3,50.7 L60,50 L62.5,48.5 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="62.5"
+                android:startY="47"
+                android:endX="54.7"
+                android:endY="50.7"
+                android:type="linear">
+                <item android:color="#38BDF8" android:offset="0.0" />
+                <item android:color="#00E5FF" android:offset="0.6" />
+                <item android:color="#FFFFFF" android:offset="1.0" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- Robotic Thumb / Supporting Digit Silhouette -->
+    <path
+        android:pathData="M69,44 L65,49 L63,48 L67,43 Z"
+        android:fillColor="#2563EB"
+        android:fillAlpha="0.8" />
+
+    <!-- Glowing Cyber Circuit Trace along Robotic Arm -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#00E5FF"
+        android:strokeWidth="1"
+        android:strokeLineCap="round"
+        android:pathData="M81,30 L73,37 L65,43 L59,47" />
+
+    <!-- Circuit Pulse Dots on Robotic Arm -->
+    <path
+        android:fillColor="#00E5FF"
+        android:pathData="M77,33.5m-0.8,0a0.8,0.8 0 1,1 1.6,0a0.8,0.8 0 1,1 -1.6,0" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M69,40m-0.8,0a0.8,0.8 0 1,1 1.6,0a0.8,0.8 0 1,1 -1.6,0" />
+
+    <!-- ======================================================== -->
+    <!-- CENTRAL TOUCHPOINT: SPARK OF CONNECTION & COLLABORATION  -->
+    <!-- ======================================================== -->
+
+    <!-- Outer Luminous Spark Aura -->
+    <path
+        android:pathData="M54,50m-7,0a7,7 0 1,1 14,0a7,7 0 1,1 -14,0">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:centerX="54"
+                android:centerY="50"
+                android:gradientRadius="7"
+                android:type="radial">
+                <item android:color="#B300E5FF" android:offset="0.0" />
+                <item android:color="#3300E5FF" android:offset="0.5" />
+                <item android:color="#00000000" android:offset="1.0" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- Radiant 8-Point Energy Spark -->
+    <!-- Main Vertical & Horizontal Rays -->
+    <path
+        android:pathData="M54,42 L55.3,48.2 L61.5,50 L55.3,51.8 L54,58 L52.7,51.8 L46.5,50 L52.7,48.2 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="46.5"
+                android:startY="50"
+                android:endX="61.5"
+                android:endY="50"
+                android:type="linear">
+                <item android:color="#38BDF8" android:offset="0.0" />
+                <item android:color="#FFFFFF" android:offset="0.5" />
+                <item android:color="#00E5FF" android:offset="1.0" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- Diagonal Secondary Sparkles -->
+    <path
+        android:pathData="M54,46 L55.8,47.8 L58,50 L55.8,52.2 L54,54 L52.2,52.2 L50,50 L52.2,47.8 Z"
+        android:fillColor="#E0F2FE" />
+
+    <!-- Brilliant Pure White Core Fusion Center -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M54,50m-2.2,0a2.2,2.2 0 1,1 4.4,0a2.2,2.2 0 1,1 -4.4,0" />
+
+    <!-- Tiny Floating Data / Energy Particles -->
+    <path
+        android:fillColor="#00E5FF"
+        android:pathData="M51,44m-0.8,0a0.8,0.8 0 1,1 1.6,0a0.8,0.8 0 1,1 -1.6,0" />
+    <path
+        android:fillColor="#38BDF8"
+        android:pathData="M58,45m-0.7,0a0.7,0.7 0 1,1 1.4,0a0.7,0.7 0 1,1 -1.4,0" />
+    <path
+        android:fillColor="#A5B4FC"
+        android:pathData="M57,55m-0.8,0a0.8,0.8 0 1,1 1.6,0a0.8,0.8 0 1,1 -1.6,0" />
+    <path
+        android:fillColor="#00E5FF"
+        android:pathData="M49,54m-0.7,0a0.7,0.7 0 1,1 1.4,0a0.7,0.7 0 1,1 -1.4,0" />
+
+</vector>

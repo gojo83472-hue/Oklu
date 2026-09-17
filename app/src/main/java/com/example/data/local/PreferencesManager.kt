@@ -14,6 +14,8 @@ class PreferencesManager(context: Context) {
         private const val KEY_UI_LANGUAGE = "ui_language"
         private const val KEY_VOICE_GENDER = "voice_gender"
         private const val KEY_SHOW_COMPANION = "show_companion"
+        private const val KEY_PET_MODE = "pet_mode"
+        private const val KEY_PET_EMOJI_PERSONA = "pet_emoji_persona"
         private const val KEY_SCREEN_TIME_MINS = "screen_time_mins"
         private const val KEY_SAFETY_SMS = "safety_sms"
         private const val KEY_TTS_ENABLED = "tts_enabled"
@@ -49,6 +51,14 @@ class PreferencesManager(context: Context) {
     var showCompanionPet: Boolean
         get() = prefs.getBoolean(KEY_SHOW_COMPANION, true)
         set(value) = prefs.edit().putBoolean(KEY_SHOW_COMPANION, value).apply()
+
+    var petMode: String
+        get() = prefs.getString(KEY_PET_MODE, "emoji") ?: "emoji"
+        set(value) = prefs.edit().putString(KEY_PET_MODE, value).apply()
+
+    var petEmojiPersona: String
+        get() = prefs.getString(KEY_PET_EMOJI_PERSONA, "robot") ?: "robot"
+        set(value) = prefs.edit().putString(KEY_PET_EMOJI_PERSONA, value).apply()
 
     var screenTimeReminderMinutes: Int
         get() = prefs.getInt(KEY_SCREEN_TIME_MINS, 0) // 0 = off, 20, 30, 45, 60

@@ -79,6 +79,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
@@ -123,6 +124,8 @@ fun MainScreen(
     val voiceGender by viewModel.voiceGender.collectAsStateWithLifecycle()
     val uiLanguage by viewModel.uiLanguage.collectAsStateWithLifecycle()
     val showCompanionPet by viewModel.showCompanionPet.collectAsStateWithLifecycle()
+    val petMode by viewModel.petMode.collectAsStateWithLifecycle()
+    val petEmojiPersona by viewModel.petEmojiPersona.collectAsStateWithLifecycle()
     val screenTimeReminderMinutes by viewModel.screenTimeReminderMinutes.collectAsStateWithLifecycle()
     val isSmsConfirmationRequired by viewModel.isSmsConfirmationRequired.collectAsStateWithLifecycle()
     val smsPendingAction by viewModel.smsPendingAction.collectAsStateWithLifecycle()
@@ -208,6 +211,16 @@ fun MainScreen(
         contentWindowInsets = WindowInsets(0, 0, 0, 0),
         topBar = {
             CenterAlignedTopAppBar(
+                navigationIcon = {
+                    Box(modifier = Modifier.padding(start = 12.dp)) {
+                        Icon(
+                            painter = painterResource(R.drawable.ic_ai_human_logo),
+                            contentDescription = "AI Assistant Logo",
+                            tint = Color.Unspecified,
+                            modifier = Modifier.size(32.dp)
+                        )
+                    }
+                },
                 title = {
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
@@ -635,6 +648,9 @@ fun MainScreen(
                     CompanionPet(
                         mood = petMood,
                         assistantName = assistantName,
+                        userNickname = userNickname,
+                        petMode = if (petMode == "droid") PetModeType.DROID else PetModeType.EMOJI,
+                        persona = petEmojiPersona,
                         onPetClicked = { triggerVoiceInput() }
                     )
                 }
@@ -729,7 +745,9 @@ fun MainScreen(
             showCompanionPet = showCompanionPet,
             screenTimeReminderMinutes = screenTimeReminderMinutes,
             isSmsConfirmationRequired = isSmsConfirmationRequired,
-            onSaveSettings = { isTtsEnabled, ttsPitch, ttsRate, ttsLanguage, isCallConf, isHaptic, customKey, model, aName, uNick, vGen, uiLang, pet, screenTime, smsConf ->
+            petMode = petMode,
+            petEmojiPersona = petEmojiPersona,
+            onSaveSettings = { isTtsEnabled, ttsPitch, ttsRate, ttsLanguage, isCallConf, isHaptic, customKey, model, aName, uNick, vGen, uiLang, pet, screenTime, smsConf, pMode, pPersona ->
                 viewModel.saveSettings(
                     isTtsEnabled = isTtsEnabled,
                     ttsPitch = ttsPitch,
@@ -745,7 +763,9 @@ fun MainScreen(
                     uiLanguage = uiLang,
                     showCompanionPet = pet,
                     screenTimeReminderMinutes = screenTime,
-                    isSmsConfirmationRequired = smsConf
+                    isSmsConfirmationRequired = smsConf,
+                    petMode = pMode,
+                    petEmojiPersona = pPersona
                 )
             },
             onTestVoice = { pitch, rate, lang, gender ->

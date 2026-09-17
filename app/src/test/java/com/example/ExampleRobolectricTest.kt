@@ -74,5 +74,32 @@ class ExampleRobolectricTest {
         val lang = ActionParser.detectLanguage("Vanakkam boss, epdi irukinga?")
         assertEquals(ActionParser.LanguageType.THANGLISH, lang)
     }
+
+    @Test
+    fun `test pet mode and persona preferences`() {
+        val context = ApplicationProvider.getApplicationContext<Context>()
+        val prefs = com.example.data.local.PreferencesManager(context)
+
+        // Default pet mode is emoji
+        assertEquals("emoji", prefs.petMode)
+        assertEquals("robot", prefs.petEmojiPersona)
+
+        // Change pet settings
+        prefs.petMode = "droid"
+        prefs.petEmojiPersona = "cat"
+        assertEquals("droid", prefs.petMode)
+        assertEquals("cat", prefs.petEmojiPersona)
+
+        // Reset to emoji
+        prefs.petMode = "emoji"
+        assertEquals("emoji", prefs.petMode)
+    }
+
+    @Test
+    fun `test logo drawable loads successfully`() {
+        val context = ApplicationProvider.getApplicationContext<Context>()
+        val drawable = androidx.core.content.ContextCompat.getDrawable(context, R.drawable.ic_ai_human_logo)
+        assertTrue("Logo drawable should exist and load", drawable != null)
+    }
 }
 

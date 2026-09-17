@@ -53,6 +53,8 @@ import androidx.compose.material3.SwitchDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.rememberModalBottomSheetState
+import androidx.compose.ui.res.painterResource
+import com.example.R
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
@@ -96,6 +98,8 @@ fun SettingsBottomSheet(
     showCompanionPet: Boolean,
     screenTimeReminderMinutes: Int,
     isSmsConfirmationRequired: Boolean,
+    petMode: String = "emoji",
+    petEmojiPersona: String = "robot",
     onSaveSettings: (
         isTtsEnabled: Boolean,
         ttsPitch: Float,
@@ -111,7 +115,9 @@ fun SettingsBottomSheet(
         uiLanguage: String,
         showCompanionPet: Boolean,
         screenTimeReminderMinutes: Int,
-        isSmsConfirmationRequired: Boolean
+        isSmsConfirmationRequired: Boolean,
+        petMode: String,
+        petEmojiPersona: String
     ) -> Unit,
     onTestVoice: (pitch: Float, rate: Float, lang: String, gender: String) -> Unit,
     onClearHistory: () -> Unit,
@@ -133,6 +139,8 @@ fun SettingsBottomSheet(
     var currentVoiceGender by remember { mutableStateOf(voiceGender) }
     var currentUiLanguage by remember { mutableStateOf(uiLanguage) }
     var currentShowPet by remember { mutableStateOf(showCompanionPet) }
+    var currentPetMode by remember { mutableStateOf(petMode) }
+    var currentPetPersona by remember { mutableStateOf(petEmojiPersona) }
     var currentScreenTime by remember { mutableIntStateOf(screenTimeReminderMinutes) }
     var currentSmsConfirmation by remember { mutableStateOf(isSmsConfirmationRequired) }
 
@@ -166,7 +174,9 @@ fun SettingsBottomSheet(
             currentUiLanguage,
             currentShowPet,
             currentScreenTime,
-            currentSmsConfirmation
+            currentSmsConfirmation,
+            currentPetMode,
+            currentPetPersona
         )
     }
 
@@ -193,12 +203,28 @@ fun SettingsBottomSheet(
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Text(
-                    text = "Assistant Settings",
-                    style = MaterialTheme.typography.titleLarge,
-                    color = TextPrimary,
-                    fontWeight = FontWeight.Bold
-                )
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Icon(
+                        painter = painterResource(R.drawable.ic_ai_human_logo),
+                        contentDescription = "Logo",
+                        tint = Color.Unspecified,
+                        modifier = Modifier.size(36.dp)
+                    )
+                    Spacer(modifier = Modifier.width(10.dp))
+                    Column {
+                        Text(
+                            text = "Assistant Settings",
+                            style = MaterialTheme.typography.titleLarge,
+                            color = TextPrimary,
+                            fontWeight = FontWeight.Bold
+                        )
+                        Text(
+                            text = "Human & AI Collaboration Hub",
+                            fontSize = 11.sp,
+                            color = SecondaryCyan
+                        )
+                    }
+                }
                 IconButton(
                     onClick = {
                         saveAll()
@@ -376,7 +402,7 @@ fun SettingsBottomSheet(
                                 Spacer(modifier = Modifier.width(6.dp))
                                 Text("Floating Companion Pet", color = TextPrimary, fontWeight = FontWeight.Medium, fontSize = 14.sp)
                             }
-                            Text("Interactive animated holographic pet droid", color = TextSecondary, fontSize = 12.sp)
+                            Text("Interactive animated assistant companion", color = TextSecondary, fontSize = 12.sp)
                         }
                         Switch(
                             checked = currentShowPet,
@@ -387,6 +413,123 @@ fun SettingsBottomSheet(
                             ),
                             modifier = Modifier.testTag("floating_pet_switch")
                         )
+                    }
+
+                    if (currentShowPet) {
+                        Spacer(modifier = Modifier.height(12.dp))
+
+                        // Pet Mode Selection: Emoji Mode vs Cyber Droid
+                        Text(
+                            text = "Pet Style",
+                            color = TextSecondary,
+                            fontSize = 12.sp,
+                            fontWeight = FontWeight.Medium
+                        )
+                        Spacer(modifier = Modifier.height(6.dp))
+
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.spacedBy(8.dp)
+                        ) {
+                            val isEmojiMode = currentPetMode == "emoji"
+                            Surface(
+                                shape = RoundedCornerShape(10.dp),
+                                color = if (isEmojiMode) TertiaryViolet.copy(alpha = 0.25f) else Color(0xFF131C2E),
+                                border = BorderStroke(1.dp, if (isEmojiMode) TertiaryViolet else Color(0xFF334155)),
+                                modifier = Modifier
+                                    .weight(1f)
+                                    .clickable { currentPetMode = "emoji" }
+                                    .testTag("pet_mode_emoji_button")
+                            ) {
+                                Row(
+                                    modifier = Modifier.padding(vertical = 8.dp, horizontal = 12.dp),
+                                    verticalAlignment = Alignment.CenterVertically,
+                                    horizontalArrangement = Arrangement.Center
+                                ) {
+                                    Text("😊", fontSize = 16.sp)
+                                    Spacer(modifier = Modifier.width(6.dp))
+                                    Text(
+                                        text = "Emoji Mode",
+                                        color = if (isEmojiMode) Color.White else TextSecondary,
+                                        fontWeight = if (isEmojiMode) FontWeight.Bold else FontWeight.Normal,
+                                        fontSize = 12.sp
+                                    )
+                                }
+                            }
+
+                            val isDroidMode = currentPetMode == "droid"
+                            Surface(
+                                shape = RoundedCornerShape(10.dp),
+                                color = if (isDroidMode) SecondaryCyan.copy(alpha = 0.25f) else Color(0xFF131C2E),
+                                border = BorderStroke(1.dp, if (isDroidMode) SecondaryCyan else Color(0xFF334155)),
+                                modifier = Modifier
+                                    .weight(1f)
+                                    .clickable { currentPetMode = "droid" }
+                                    .testTag("pet_mode_droid_button")
+                            ) {
+                                Row(
+                                    modifier = Modifier.padding(vertical = 8.dp, horizontal = 12.dp),
+                                    verticalAlignment = Alignment.CenterVertically,
+                                    horizontalArrangement = Arrangement.Center
+                                ) {
+                                    Text("🤖", fontSize = 16.sp)
+                                    Spacer(modifier = Modifier.width(6.dp))
+                                    Text(
+                                        text = "Cyber Droid",
+                                        color = if (isDroidMode) Color.White else TextSecondary,
+                                        fontWeight = if (isDroidMode) FontWeight.Bold else FontWeight.Normal,
+                                        fontSize = 12.sp
+                                    )
+                                }
+                            }
+                        }
+
+                        // If Emoji Mode, show Emoji Persona choices
+                        if (currentPetMode == "emoji") {
+                            Spacer(modifier = Modifier.height(10.dp))
+                            Text(
+                                text = "Emoji Character",
+                                color = TextSecondary,
+                                fontSize = 12.sp,
+                                fontWeight = FontWeight.Medium
+                            )
+                            Spacer(modifier = Modifier.height(6.dp))
+
+                            val personas = listOf(
+                                "robot" to "🤖 Robo",
+                                "cat" to "😺 Cat",
+                                "fox" to "🦊 Fox",
+                                "pup" to "🐶 Pup",
+                                "spark" to "💫 Spark"
+                            )
+
+                            Row(
+                                modifier = Modifier.fillMaxWidth(),
+                                horizontalArrangement = Arrangement.spacedBy(6.dp)
+                            ) {
+                                personas.forEach { (id, label) ->
+                                    val isSelected = currentPetPersona == id
+                                    Surface(
+                                        shape = RoundedCornerShape(8.dp),
+                                        color = if (isSelected) TertiaryViolet.copy(alpha = 0.3f) else Color(0xFF131C2E),
+                                        border = BorderStroke(1.dp, if (isSelected) TertiaryViolet else Color(0xFF334155)),
+                                        modifier = Modifier
+                                            .weight(1f)
+                                            .clickable { currentPetPersona = id }
+                                            .testTag("pet_persona_$id")
+                                    ) {
+                                        Text(
+                                            text = label,
+                                            color = if (isSelected) Color.White else TextSecondary,
+                                            fontSize = 11.sp,
+                                            fontWeight = if (isSelected) FontWeight.Bold else FontWeight.Normal,
+                                            modifier = Modifier.padding(vertical = 6.dp),
+                                            textAlign = androidx.compose.ui.text.style.TextAlign.Center
+                                        )
+                                    }
+                                }
+                            }
+                        }
                     }
 
                     HorizontalDivider(modifier = Modifier.padding(vertical = 12.dp), color = Color(0xFF2E3D52))
